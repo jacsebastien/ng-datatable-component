@@ -1,0 +1,21 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+    
+    text-align: center;
+    color: #333;
+}
+
+th {
+    padding: 10px;
+    border-bottom: 1px solid #333;
+    font-weight: bold;
+}
+
+tbody tr:nth-child(odd) {
+    background: #EEE;
+}
+
+td {
+    padding: 10px;
+}
