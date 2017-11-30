@@ -19,3 +19,11 @@ tbody tr:nth-child(odd) {
 td {
     padding: 10px;
 }
+
+.pointer {
+    cursor: pointer;
+}
+
+.fa-sort {
+    color: #CCC;
+}

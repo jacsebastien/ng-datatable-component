@@ -1,13 +1,24 @@
 <table>
     <thead>
         <tr>
-            <th *ngFor="let column of columns">{{column.title}}</th>
+            <th *ngFor="let column of columns"
+                [ngClass]="{'pointer': sortable}"
+                (click)="sortable && sort(column.field)">
+                {{column.header}}
+                <i  class="fa" 
+                    [ngClass]="{
+                        'fa-sort': (selectedColumn !== column.field), 
+                        'fa-sort-asc': (selectedColumn === column.field && !isDesc), 
+                        'fa-sort-desc': (selectedColumn === column.field && isDesc) 
+                    }"
+                    aria-hidden="true"
+                    *ngIf="sortable"></i>
+            </th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let row of data">
-            <!-- <td *ngFor="let column of columns">{{row[column.value]}}</td> -->
-            <td *ngFor="let value of row">{{value}}</td>
+            <td *ngFor="let column of columns">{{row[column.field]}}</td>
         </tr>
     </tbody>
 </table>

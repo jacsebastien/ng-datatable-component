@@ -1,56 +1,75 @@
 import { Component } from '@angular/core';
+import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-    dataSet: string[][] = [
-        ["Tiger Nixon", "System Architect", "Edinburgh", "5421", "2011/04/25", "$320,800"],
-        ["Garrett Winters", "Accountant", "Tokyo", "8422", "2011/07/25", "$170,750"],
-        ["Ashton Cox", "Junior Technical Author", "San Francisco", "1562", "2009/01/12", "$86,000"],
-        ["Cedric Kelly", "Senior Javascript Developer", "Edinburgh", "6224", "2012/03/29", "$433,060"],
-        ["Airi Satou", "Accountant", "Tokyo", "5407", "2008/11/28", "$162,700"],
-        ["Brielle Williamson", "Integration Specialist", "New York", "4804", "2012/12/02", "$372,000"],
-        ["Herrod Chandler", "Sales Assistant", "San Francisco", "9608", "2012/08/06", "$137,500"],
-        ["Rhona Davidson", "Integration Specialist", "Tokyo", "6200", "2010/10/14", "$327,900"],
-        ["Colleen Hurst", "Javascript Developer", "San Francisco", "2360", "2009/09/15", "$205,500"],
-        ["Sonya Frost", "Software Engineer", "Edinburgh", "1667", "2008/12/13", "$103,600"],
-        ["Jena Gaines", "Office Manager", "London", "3814", "2008/12/19", "$90,560"],
-        ["Quinn Flynn", "Support Lead", "Edinburgh", "9497", "2013/03/03", "$342,000"],
-        ["Charde Marshall", "Regional Director", "San Francisco", "6741", "2008/10/16", "$470,600"],
-        ["Haley Kennedy", "Senior Marketing Designer", "London", "3597", "2012/12/18", "$313,500"],
-        ["Tatyana Fitzpatrick", "Regional Director", "London", "1965", "2010/03/17", "$385,750"],
-        ["Michael Silva", "Marketing Designer", "London", "1581", "2012/11/27", "$198,500"],
-        ["Paul Byrd", "Chief Financial Officer (CFO)", "New York", "3059", "2010/06/09", "$725,000"],
-        ["Gloria Little", "Systems Administrator", "New York", "1721", "2009/04/10", "$237,500"],
-        ["Bradley Greer", "Software Engineer", "London", "2558", "2012/10/13", "$132,000"],
-        ["Dai Rios", "Personnel Lead", "Edinburgh", "2290", "2012/09/26", "$217,500"],
-        ["Jenette Caldwell", "Development Lead", "New York", "1937", "2011/09/03", "$345,000"],
-        ["Yuri Berry", "Chief Marketing Officer (CMO)", "New York", "6154", "2009/06/25", "$675,000"],
-        ["Caesar Vance", "Pre-Sales Support", "New York", "8330", "2011/12/12", "$106,450"],
-        ["Doris Wilder", "Sales Assistant", "Sidney", "3023", "2010/09/20", "$85,600"],
-        ["Angelica Ramos", "Chief Executive Officer (CEO)", "London", "5797", "2009/10/09", "$1,200,000"],
-        ["Gavin Joyce", "Developer", "Edinburgh", "8822", "2010/12/22", "$92,575"],
-        ["Jennifer Chang", "Regional Director", "Singapore", "9239", "2010/11/14", "$357,650"],
-        ["Brenden Wagner", "Software Engineer", "San Francisco", "1314", "2011/06/07", "$206,850"],
-        ["Fiona Green", "Chief Operating Officer (COO)", "San Francisco", "2947", "2010/03/11", "$850,000"],
-        ["Shou Itou", "Regional Marketing", "Tokyo", "8899", "2011/08/14", "$163,000"],
-        ["Michelle House", "Integration Specialist", "Sidney", "2769", "2011/06/02", "$95,400"],
-        ["Suki Burks", "Developer", "London", "6832", "2009/10/22", "$114,500"],
-        ["Prescott Bartlett", "Technical Author", "London", "3606", "2011/05/07", "$145,000"],
-        ["Gavin Cortez", "Team Leader", "San Francisco", "2860", "2008/10/26", "$235,500"],
-        ["Martena Mccray", "Post-Sales support", "Edinburgh", "8240", "2011/03/09", "$324,050"],
-        ["Unity Butler", "Marketing Designer", "San Francisco", "5384", "2009/12/09", "$85,675"]
-    ];
+export class AppComponent implements OnInit {
+    dataSet: any[];
 
-    columns: {title: string}[] = [
-        { title: "Name" },
-        { title: "Position" },
-        { title: "Office" },
-        { title: "Extn." },
-        { title: "Start date" },
-        { title: "Salary" }
-    ]
+    columns: any[];
+
+    ngOnInit() {
+        this.dataSet = [
+            {"vin":"a1653d4d","brand":"VW","year":1998,"color":"White","price":10000},
+            {"vin":"ddeb9b10","brand":"Mercedes","year":1985,"color":"Green","price":25000},
+            {"vin":"d8ebe413","brand":"Jaguar","year":1979,"color":"Silver","price":30000},
+            {"vin":"aab227b7","brand":"Audi","year":1970,"color":"Black","price":12000},
+            {"vin":"631f7412","brand":"Volvo","year":1992,"color":"Red","price":15500},
+            {"vin":"7d2d22b0","brand":"VW","year":1993,"color":"Maroon","price":40000},
+            {"vin":"50e900ca","brand":"Fiat","year":1964,"color":"Blue","price":25000},
+            {"vin":"4bbcd603","brand":"Renault","year":1983,"color":"Maroon","price":22000},
+            {"vin":"70214c7e","brand":"Renault","year":1961,"color":"Black","price":19000},
+            {"vin":"ec229a92","brand":"Audi","year":1984,"color":"Brown","price":36000},
+            {"vin":"1083ee40","brand":"VW","year":1984,"color":"Silver","price":215000},
+            {"vin":"6e0da3ab","brand":"Volvo","year":1987,"color":"Silver","price":32000},
+            {"vin":"5aee636b","brand":"Jaguar","year":1995,"color":"Maroon","price":20000},
+            {"vin":"7cc43997","brand":"Jaguar","year":1984,"color":"Orange","price":14000},
+            {"vin":"88ec9f66","brand":"Honda","year":1989,"color":"Maroon","price":36000},
+            {"vin":"f5a4a5f5","brand":"BMW","year":1986,"color":"Blue","price":28000},
+            {"vin":"15b9a5c9","brand":"Mercedes","year":1986,"color":"Orange","price":14000},
+            {"vin":"f7e18d01","brand":"Mercedes","year":1991,"color":"White","price":25000},
+            {"vin":"cec593d7","brand":"VW","year":1992,"color":"Blue","price":36000},
+            {"vin":"d5bac4f0","brand":"Renault","year":2001,"color":"Blue","price":25000},
+            {"vin":"56b527c8","brand":"Jaguar","year":1990,"color":"Yellow","price":52000},
+            {"vin":"1ac011ff","brand":"Audi","year":1966,"color":"Maroon","price":45000},
+            {"vin":"fc074185","brand":"BMW","year":1962,"color":"Blue","price":54000},
+            {"vin":"606ba663","brand":"Honda","year":1982,"color":"Blue","price":22000},
+            {"vin":"d05060b8","brand":"Mercedes","year":2003,"color":"Silver","price":15000},
+            {"vin":"46e4bbe8","brand":"Mercedes","year":1986,"color":"White","price":18000},
+            {"vin":"c29da0d7","brand":"BMW","year":1983,"color":"Brown","price":32000},
+            {"vin":"24622f70","brand":"VW","year":1973,"color":"Maroon","price":36000},
+            {"vin":"7f573d2c","brand":"Mercedes","year":1991,"color":"Red","price":21000},
+            {"vin":"b69e6f5c","brand":"Jaguar","year":1993,"color":"Yellow","price":16000},
+            {"vin":"ead9bf1d","brand":"Fiat","year":1968,"color":"Maroon","price":43000},
+            {"vin":"bc58113e","brand":"Renault","year":1981,"color":"Silver","price":36000},
+            {"vin":"2989d5b1","brand":"Honda","year":2006,"color":"Blue","price":240000},
+            {"vin":"c243e3a0","brand":"Fiat","year":1990,"color":"Maroon","price":15000},
+            {"vin":"e3d3ebf3","brand":"Audi","year":1996,"color":"White","price":28000},
+            {"vin":"45337e7a","brand":"Mercedes","year":1982,"color":"Blue","price":14000},
+            {"vin":"36e9cf7e","brand":"Fiat","year":2000,"color":"Orange","price":26000},
+            {"vin":"036bf135","brand":"Mercedes","year":1973,"color":"Black","price":22000},
+            {"vin":"ad612e9f","brand":"Mercedes","year":1975,"color":"Red","price":45000},
+            {"vin":"97c6e1e9","brand":"Volvo","year":1967,"color":"Green","price":42000},
+            {"vin":"ae962274","brand":"Volvo","year":1982,"color":"Red","price":36000},
+            {"vin":"81f8972a","brand":"BMW","year":2007,"color":"Black","price":56000},
+            {"vin":"f8506743","brand":"Audi","year":1975,"color":"Blue","price":42000},
+            {"vin":"596859d1","brand":"Fiat","year":2002,"color":"Green","price":48000},
+            {"vin":"d83c1d9a","brand":"Volvo","year":1972,"color":"Black","price":29000},
+            {"vin":"32f41550","brand":"Mercedes","year":1978,"color":"Brown","price":17000},
+            {"vin":"c28cd2e4","brand":"Volvo","year":1982,"color":"Silver","price":24000},
+            {"vin":"80890dcc","brand":"Audi","year":1962,"color":"White","price":36000},
+            {"vin":"4bf1aeb5","brand":"VW","year":2000,"color":"Silver","price":24000},
+            {"vin":"45ca4786","brand":"BMW","year":1995,"color":"Maroon","price":50000}
+        ];
+
+        this.columns = [
+            {field: 'vin', header: 'Vin'},
+            {field: 'year', header: 'Year'},
+            {field: 'brand', header: 'Brand'},
+            {field: 'color', header: 'Color'}
+        ];
+    }
 }
