@@ -1,4 +1,4 @@
-<div class="filter-block">
+<div class="filter-block" *ngIf="filterable">
     <label for="search-input">Filtrer: </label>
     <input id="search-input" type="text" [(ngModel)]="filterValue">
 </div>

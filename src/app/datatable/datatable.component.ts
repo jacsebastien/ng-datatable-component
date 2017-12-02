@@ -9,7 +9,7 @@ export class DatatableComponent implements OnInit {
   @Input() data: any[];
   @Input() columns: any[];
   @Input() sortable: boolean;
-
+  @Input() filterable: boolean;
 
   isDesc = true;
   selectedColumn: string = '';
@@ -18,7 +18,6 @@ export class DatatableComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    // console.log(this.sortable);
   }
 
   sort(property: string) {
