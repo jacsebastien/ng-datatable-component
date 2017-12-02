@@ -22,7 +22,7 @@ export class DatatableComponent implements OnInit {
   constructor() { 
     this.selectedColumn = '';
     this.filterValue = '';
-    this.itemsPerPage = 10;
+    this.itemsPerPage = 3;
     this.pagesToShow = 5;
     this.startIndex = 0;
   }
@@ -42,8 +42,7 @@ export class DatatableComponent implements OnInit {
   }
 
   updateIndexes(indexes: {startIndex: number, endIndex: number}) {
-    console.log("updateIndexes: ", indexes);
     this.startIndex = indexes.startIndex;
-    this.endIndex = indexes.endIndex;
+    this.endIndex = indexes.endIndex +1;
   }
 }

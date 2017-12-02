@@ -22,10 +22,6 @@ export class PaginationComponent implements OnInit, OnChanges {
     constructor() { }
 
     ngOnInit() {
-        console.log("totalItems: ", this.totalItems);
-        console.log("itemsPerPage: ", this.itemsPerPage);
-        console.log("pagesToShow: ", this.pagesToShow);
-
         this.setPager();
     }
 
@@ -35,7 +31,6 @@ export class PaginationComponent implements OnInit, OnChanges {
     }
 
     setPage(pageNumber: number) {
-        console.log("setPage: ", pageNumber);
         if (pageNumber < 1 || pageNumber > this.totalPages) {
             return;
         }
