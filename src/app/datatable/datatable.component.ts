@@ -10,20 +10,19 @@ export class DatatableComponent implements OnInit {
   @Input() columns: any[];
   @Input() sortable: boolean;
   @Input() filterable: boolean;
+  @Input() paginator: boolean;
+  @Input() itemsPerPage: number;
+  @Input() pagesToShow: number;
 
   isDesc: boolean;
   selectedColumn: string;
   filterValue: string;
-  itemsPerPage: number;
-  pagesToShow: number;
   startIndex: number;
   endIndex: number;
 
   constructor() { 
     this.selectedColumn = '';
     this.filterValue = '';
-    this.itemsPerPage = 3;
-    this.pagesToShow = 5;
     this.startIndex = 0;
   }
 

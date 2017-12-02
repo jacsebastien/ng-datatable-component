@@ -1,5 +1,13 @@
 <h1>
-  Angular Datatable component 
+    Angular Datatable component
 </h1>
 
-<datatable [data]="dataSet" [columns]="columns" [sortable]="true" [filterable]="true"></datatable>
+<datatable 
+    [data]="dataSet" 
+    [columns]="columns" 
+    [sortable]="true" 
+    [filterable]="true" 
+    [paginator]="true"
+    [itemsPerPage]="10"
+    [pagesToShow]="5">
+</datatable>

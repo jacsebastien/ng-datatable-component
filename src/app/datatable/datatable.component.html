@@ -1,9 +1,3 @@
-<pagination
-    [totalItems]="(data | filter:filterValue)?.length"
-    [itemsPerPage]="itemsPerPage"
-    [pagesToShow]="pagesToShow"
-    (indexesChanged)="updateIndexes($event)">
-</pagination>
 <div class="filter-block" *ngIf="filterable">
     <label for="search-input">Filtrer: </label>
     <input id="search-input" type="text" [(ngModel)]="filterValue">
@@ -32,11 +26,10 @@
         </tr>
     </tbody>
 </table>
-<!-- <pagination
-    [totalItems]="data.length"
+<pagination
+    *ngIf="paginator"
+    [totalItems]="(data | filter:filterValue)?.length"
     [itemsPerPage]="itemsPerPage"
     [pagesToShow]="pagesToShow"
-    (onPrev)="prevPage()"
-    (onNext)="nextPage()"
-    (onPage)="goToPage($event)">
-</pagination> -->
+    (indexesChanged)="updateIndexes($event)">
+</pagination>
