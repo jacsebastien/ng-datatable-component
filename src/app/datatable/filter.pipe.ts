@@ -29,7 +29,7 @@ export class FilterPipe implements PipeTransform {
             }
         });
 
-        return resultArray.length > 0 ? resultArray : [];
+        return resultArray;
     }
 
 }

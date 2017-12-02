@@ -21,7 +21,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let row of data | filter:filterValue">
+        <tr *ngFor="let row of data | sort:selectedColumn:isDesc | filter:filterValue">
             <td *ngFor="let column of columns">{{row[column.field]}}</td>
         </tr>
     </tbody>

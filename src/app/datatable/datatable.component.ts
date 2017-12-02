@@ -12,7 +12,7 @@ export class DatatableComponent implements OnInit {
 
 
   isDesc = true;
-  selectedColumn: string;
+  selectedColumn: string = '';
   filterValue: string = '';
 
   constructor() { }
@@ -21,27 +21,13 @@ export class DatatableComponent implements OnInit {
     // console.log(this.sortable);
   }
 
-  sort(property) {
+  sort(property: string) {
     if(this.selectedColumn === property) {
       this.isDesc = !this.isDesc;    
     } else {
-      this.isDesc = true;
+      this.isDesc = false;
     }
 
     this.selectedColumn = property;
-
-    let direction = this.isDesc ? -1 : 1;
-
-    this.data.sort((a, b) => {
-      if(a[property] < b[property]){
-          return -1 * direction;
-      }
-      else if( a[property] > b[property]){
-          return 1 * direction;
-      }
-      else{
-          return 0;
-      }
-    });
   }
 }
