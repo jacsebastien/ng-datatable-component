@@ -4,7 +4,7 @@ import { OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
 @Component({
     selector: 'pagination',
     templateUrl: './pagination.component.html',
-    styleUrls: ['./pagination.component.css']
+    styleUrls: ['./pagination.component.scss']
 })
 export class PaginationComponent implements OnInit, OnChanges {
     @Input() totalItems: number;
