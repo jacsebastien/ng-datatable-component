@@ -13,11 +13,12 @@ export class DatatableComponent implements OnInit {
 
   isDesc = true;
   selectedColumn: string;
+  filterValue: string = '';
 
   constructor() { }
 
   ngOnInit() {
-    console.log(this.sortable);
+    // console.log(this.sortable);
   }
 
   sort(property) {
