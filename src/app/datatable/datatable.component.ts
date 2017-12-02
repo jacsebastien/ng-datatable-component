@@ -11,13 +11,24 @@ export class DatatableComponent implements OnInit {
   @Input() sortable: boolean;
   @Input() filterable: boolean;
 
-  isDesc = true;
-  selectedColumn: string = '';
-  filterValue: string = '';
+  isDesc: boolean;
+  selectedColumn: string;
+  filterValue: string;
+  itemsPerPage: number;
+  pagesToShow: number;
+  startIndex: number;
+  endIndex: number;
 
-  constructor() { }
+  constructor() { 
+    this.selectedColumn = '';
+    this.filterValue = '';
+    this.itemsPerPage = 10;
+    this.pagesToShow = 5;
+    this.startIndex = 0;
+  }
 
   ngOnInit() {
+    this.endIndex = this.data.length;        
   }
 
   sort(property: string) {
@@ -28,5 +39,11 @@ export class DatatableComponent implements OnInit {
     }
 
     this.selectedColumn = property;
+  }
+
+  updateIndexes(indexes: {startIndex: number, endIndex: number}) {
+    console.log("updateIndexes: ", indexes);
+    this.startIndex = indexes.startIndex;
+    this.endIndex = indexes.endIndex;
   }
 }

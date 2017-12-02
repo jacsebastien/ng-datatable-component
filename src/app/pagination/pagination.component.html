@@ -1,0 +1,21 @@
+<div class="pagination-block" *ngIf="totalItems > 0">
+    <button (click)="setPage(1)" [disabled]="currentPage === 1">
+        <i class="fa fa-backward" aria-hidden="true"></i>
+    </button>
+
+    <button (click)="setPage(currentPage - 1)" [disabled]="currentPage === 1">
+        <i class="fa fa-step-backward" aria-hidden="true"></i>
+    </button>
+
+    <button *ngFor="let page of pages" [ngClass]="{active:currentPage === page}" (click)="setPage(page)">
+        {{page}}
+    </button>
+
+    <button (click)="setPage(currentPage + 1)" [disabled]="currentPage === totalPages">
+        <i class="fa fa-step-forward" aria-hidden="true"></i>
+    </button>
+
+    <button (click)="setPage(totalPages)" [disabled]="currentPage === totalPages">
+        <i class="fa fa-forward" aria-hidden="true"></i>
+    </button>
+</div>

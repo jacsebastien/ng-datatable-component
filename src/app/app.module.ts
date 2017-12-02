@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { DatatableComponent } from './datatable/datatable.component';
 import { FilterPipe } from './datatable/filter.pipe';
 import { SortPipe } from './datatable/sort.pipe';
+import { PaginationComponent } from './pagination/pagination.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { SortPipe } from './datatable/sort.pipe';
     AppComponent,
     DatatableComponent,
     FilterPipe,
-    SortPipe
+    SortPipe,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,
