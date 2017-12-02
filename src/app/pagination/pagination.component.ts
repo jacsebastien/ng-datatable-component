@@ -11,7 +11,7 @@ export class PaginationComponent implements OnInit, OnChanges {
     @Input() itemsPerPage: number;
     @Input() pagesToShow: number;
 
-    @Output() indexesChanged = new EventEmitter<{startIndex: number, endIndex: number}>();
+    @Output() currentPageChanged = new EventEmitter<number>();
 
     currentPage = 1;
     totalPages = 0;
@@ -35,6 +35,7 @@ export class PaginationComponent implements OnInit, OnChanges {
             return;
         }
         this.currentPage = pageNumber;
+        this.currentPageChanged.emit(this.currentPage);
 
         this.setPager();
     }
@@ -58,14 +59,6 @@ export class PaginationComponent implements OnInit, OnChanges {
                 this.endPage = this.currentPage + Math.floor(this.pagesToShow/2);
             }
         }
- 
-        const startIndex = (this.currentPage - 1) * this.itemsPerPage;
-        const endIndex = Math.min(startIndex + this.itemsPerPage - 1, this.totalItems - 1);
-
-        this.indexesChanged.emit({
-            startIndex: startIndex,
-            endIndex: endIndex
-        });
  
         for(let i = this.startPage; i <= this.endPage; i++) {
             this.pages.push(i);

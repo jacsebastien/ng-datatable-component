@@ -1,5 +1,16 @@
 .filter-block {
-    text-align: center;
+    padding: 5px 20px;
+
+    text-align: right;
+    color: #333;
+
+    input {
+        padding: 6px;
+        margin-left: 10px;
+
+        border: 1px solid #AAA;
+        border-radius: 4px;
+    }
 }
 
 table {
@@ -12,7 +23,7 @@ table {
 
 th {
     padding: 10px;
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid #666;
     font-weight: bold;
 }
 
@@ -26,6 +37,10 @@ td {
 
 .pointer {
     cursor: pointer;
+}
+
+.fa {
+    color: #018;
 }
 
 .fa-sort {

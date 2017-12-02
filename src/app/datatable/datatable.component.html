@@ -1,5 +1,5 @@
 <div class="filter-block" *ngIf="filterable">
-    <label for="search-input">Filtrer: </label>
+    <label for="search-input"><i class="fa fa-search" aria-hidden="true"></i></label>
     <input id="search-input" type="text" [(ngModel)]="filterValue">
 </div>
 <table>
@@ -21,7 +21,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let row of data | sort:selectedColumn:isDesc | filter:filterValue | slice:startIndex:endIndex">
+        <tr *ngFor="let row of data | filter:filterValue | sort:selectedColumn:isDesc | slice:startIndex:endIndex">
             <td *ngFor="let column of columns">{{row[column.field]}}</td>
         </tr>
     </tbody>
@@ -31,5 +31,5 @@
     [totalItems]="(data | filter:filterValue)?.length"
     [itemsPerPage]="itemsPerPage"
     [pagesToShow]="pagesToShow"
-    (indexesChanged)="updateIndexes($event)">
+    (currentPageChanged)="updateIndexes($event)">
 </pagination>

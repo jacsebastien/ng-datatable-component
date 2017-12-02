@@ -1,47 +1,47 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'datatable',
-  templateUrl: './datatable.component.html',
-  styleUrls: ['./datatable.component.scss']
+    selector: 'datatable',
+    templateUrl: './datatable.component.html',
+    styleUrls: ['./datatable.component.scss']
 })
 export class DatatableComponent implements OnInit {
-  @Input() data: any[];
-  @Input() columns: any[];
-  @Input() sortable: boolean;
-  @Input() filterable: boolean;
-  @Input() paginator: boolean;
-  @Input() itemsPerPage: number;
-  @Input() pagesToShow: number;
+    @Input() data: any[];
+    @Input() columns: any[];
+    @Input() sortable: boolean;
+    @Input() filterable: boolean;
+    @Input() paginator: boolean;
+    @Input() itemsPerPage: number;
+    @Input() pagesToShow: number;
 
-  isDesc: boolean;
-  selectedColumn: string;
-  filterValue: string;
-  startIndex: number;
-  endIndex: number;
+    isDesc: boolean;
+    selectedColumn: string;
+    filterValue: string;
+    startIndex: number;
+    endIndex: number;
 
-  constructor() { 
-    this.selectedColumn = '';
-    this.filterValue = '';
-    this.startIndex = 0;
-  }
-
-  ngOnInit() {
-    this.endIndex = this.data.length;        
-  }
-
-  sort(property: string) {
-    if(this.selectedColumn === property) {
-      this.isDesc = !this.isDesc;    
-    } else {
-      this.isDesc = false;
+    constructor() {
+        this.selectedColumn = '';
+        this.filterValue = '';
     }
 
-    this.selectedColumn = property;
-  }
+    ngOnInit() {
+        this.startIndex = 0;
+        this.endIndex = this.itemsPerPage;
+    }
 
-  updateIndexes(indexes: {startIndex: number, endIndex: number}) {
-    this.startIndex = indexes.startIndex;
-    this.endIndex = indexes.endIndex +1;
-  }
+    sort(property: string) {
+        if (this.selectedColumn === property) {
+            this.isDesc = !this.isDesc;
+        } else {
+            this.isDesc = false;
+        }
+
+        this.selectedColumn = property;
+    }
+
+    updateIndexes(currentPage: number) {
+        this.startIndex = (currentPage - 1) * this.itemsPerPage;
+        this.endIndex = Math.min(this.startIndex + this.itemsPerPage, this.data.length - 1);
+    }
 }
